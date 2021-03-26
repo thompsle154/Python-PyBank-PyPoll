@@ -50,7 +50,7 @@ with open(csvpath) as csvfile:
        
       
     #Create title header
-print("Financial Analysis")
+print("Financial Analysis Test")
 print("---------------------------") 
 print(f"Total Months: {len(months)}")
 print(f"Total: ${sum(profit_amt)}")
