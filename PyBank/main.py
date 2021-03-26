@@ -32,25 +32,26 @@ with open(csvpath) as csvfile:
         #Get the difference between the two months
         profit_change.append(profit_amt[r+1] - profit_amt[r])
 
-#Look at min and max from amount change
-max_value = max(profit_change)
-min_value = min(profit_change)
+#Look at min and max from amount that changec
+max_inc_value = max(profit_change)
+max_dec_value = min(profit_change)
 
-   #Get Average Change
-    #Find change between all months than get the average
-    #get max and min, then subtract, divided by number of lines (86)
-    #input()
-       #    First.append(row)
-    #    avg_change = (max(row[1]) - min(row[1]) / (lines)))
-    #print("Average Change: ", str(avg_change))
+#Set min and max to month list and set index
+#Use +1 to put change on the next month
+month_max_increase = profit_change.index(max(profit_change)) + 1
+month_max_decrease = profit_change.index(min(profit_change)) + 1
 
-       
-#Put outside of loop - no indent     
+
+         
+#Set print statements outside of loop - no indent     
 print("Financial Analysis")
 print("---------------------------") 
 print(f"Total Months: {len(months)}")
 print(f"Total: ${sum(profit_amt)}")
-print(f"Average Change: ${round((profit_change),2)}")
+print(f"Average Change: ${round((profit_change)/len(profit_change), 2)}")
+print(f"Greatest Increase in Profits: {months[month_max_increase]} (${(str(max_inc_value))})")
+print(f"Greatest Decrease in Profits: {months[month_max_decrease]} (${(str(max_dec_value))})")
+
 
         
 
