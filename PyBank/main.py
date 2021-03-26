@@ -7,6 +7,7 @@ import csv
 
 #Read the csv file
 csvpath = os.path.join('Resources', 'budget_data.csv')
+txtpath = os.path.join('Analysis', 'Financial_Analysis.txt')
 
 #Initializing lists to store data
 months = []
@@ -42,21 +43,26 @@ month_max_increase = profit_change.index(max(profit_change)) + 1
 month_max_decrease = profit_change.index(min(profit_change)) + 1
 
 
-         
+#Print results        
 #Set print statements outside of loop - no indent     
 print("Financial Analysis")
 print("---------------------------") 
 print(f"Total Months: {len(months)}")
 print(f"Total: ${sum(profit_amt)}")
-print(f"Average Change: ${round((profit_change)/len(profit_change), 2)}")
+print(f"Average Change: ${round(sum(profit_change)/len(profit_change), 2)}")
 print(f"Greatest Increase in Profits: {months[month_max_increase]} (${(str(max_inc_value))})")
 print(f"Greatest Decrease in Profits: {months[month_max_decrease]} (${(str(max_dec_value))})")
 
 
-        
-
-
-
+f = open(txtpath, "w+")
+print("Financial Analysis:", file=f)
+print("---------------------------", file=f)
+print(f"Total Months: {len(months)}", file=f)
+print(f"Total: ${sum(profit_amt)}", file=f)
+print(f"Average Change: ${round(sum(profit_change)/len(profit_change), 2)}", file=f)
+print(f"Greatest Increase in Profits: {months[month_max_increase]} (${(str(max_inc_value))})", file=f)
+print(f"Greatest Decrease in Profits: {months[month_max_decrease]} (${(str(max_dec_value))})", file=f)
+f.close
 
    
 
