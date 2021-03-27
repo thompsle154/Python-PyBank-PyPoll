@@ -57,9 +57,9 @@ with open(csvpath) as csvfile:
         Election [Candidate_votes[i]]= Candidate.count(Candidate_votes [i])
 
         #Test to see candidate names
-        print(Candidate_votes[i])
-        print('%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%') #print 3 decimal places
-        print(Election[Candidate_votes[i]])  #to print number of votes each candidate won
+        print((Candidate_votes[i] + ':') + ' ' + ('%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%') + ' ' + '(' + str(Election[Candidate_votes[i]]) + ')')
+        #print('%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%') #print 3 decimal places
+        #print(Election[Candidate_votes[i]])  #to print number of votes each candidate won
     print("-------------------")
     print("Winner: " + str(max(Candidate_votes)))
 
