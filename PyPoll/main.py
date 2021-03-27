@@ -26,11 +26,25 @@ with open(csvpath) as csvfile:
         Candidate.append(row[2])
     Candidate_votes = set(Candidate)
     Candidate_votes = list(Candidate_votes)
+
+    #Test to see if this returns the right number of candidates
+    #print(Number_candidates)
     
-    #Get the unique candidates 
+    #Calculate the total number of votes
+    #Use len because it returns the number of items in an object
+    total_votes = len(Candidate)
+    #Get the unique candidates
     Number_candidates = len(Candidate_votes)
+    
     #Test the code
-    print(Number_candidates)
+    #print(total_votes)
+
+    #Create a dictionary
+    Election = {}
+    #People= {"Correy": 704200, "Li": 492940, "Khan": 2218231, "O'Tooley": 105630}
+    dict_names=(["Correy", "Li", "Khan", "O'Tooley"])
+    dict_totals= ([704200, 492940, 2218231, 105630])
+    print(People[dict_names])  #Error unhashable type: 'list'
 
 
 
