@@ -7,7 +7,7 @@ import csv
 
 #Read the csv file
 csvpath = os.path.join('Resources', 'election_data.csv')
-#txtpath = os.path.join('Analysis', 'Financial_Analysis.txt')
+txtpath = os.path.join('Analysis', 'Financial_Analysis.txt')
 
 #Initializing lists to store data
 Candidate = []
@@ -28,7 +28,6 @@ with open(csvpath) as csvfile:
         Candidate.append(row[2])
     Candidate_votes = set(Candidate)
     Candidate_votes = list(Candidate_votes)
-
            
     #Calculate the total number of votes
     #Use len because it returns the number of items in an object
@@ -36,17 +35,13 @@ with open(csvpath) as csvfile:
     #Get the unique candidates
     Number_candidates = len(Candidate_votes)
         
-    #Test the code
-    #print(total_votes)
-
     #Create a dictionary
-    #Used Name and Id to store value pairs. Added tuple
+    #Used Name and total of votes to store value pairs. Added tuple
     Election = {}
     People= {'Correy': tuple([704200]), 'Li': tuple([492940]), 'Khan': tuple([2218231]), 'OTooley': tuple([105630])}
     dict_names=(['Correy', 'Li', 'Khan', 'OTooley'])
     dict_totals=([704200, 492940, 2218231, 105630])
     
-
     print("Election Results")
     print("----------------------")
     print("Total Votes:", (Total_votes))
@@ -56,16 +51,22 @@ with open(csvpath) as csvfile:
     for i in range(Number_candidates):
         Election [Candidate_votes[i]]= Candidate.count(Candidate_votes [i])
 
-        #Test to see candidate names
+        #Print the list of candidate that received votes
         print((Candidate_votes[i] + ':') + ' ' + ('%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%') + ' ' + '(' + str(Election[Candidate_votes[i]]) + ')')
-        #print('%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%') #print 3 decimal places
-        #print(Election[Candidate_votes[i]])  #to print number of votes each candidate won
+    
+    #Print the winner based on popular vote
     print("-------------------")
     print("Winner: " + str(max(Candidate_votes)))
 
-
-
-
-
-
-
+    #Print to a text file
+    f = open(txtpath, "w+")
+    print(f"Election Results", file=f)
+    print(f"----------------------", file=f)
+    print(f"Total Votes: {(Total_votes)}", file=f)
+    print(f"----------------------", file=f)
+    for i in range(Number_candidates):
+        Election [Candidate_votes[i]]= Candidate.count(Candidate_votes [i])
+        print(f"{(Candidate_votes[i]) + ':' + ' ' + '%.3f'%round(float(Election[Candidate_votes[i]])/Total_votes*100) + '%' + ' ' + '(' + str(Election[Candidate_votes[i]]) + ')'}", file=f)
+    print(f"-------------------", file=f)
+    print(f"Winner: {(str(max(Candidate_votes)))})", file=f)
+    f.close
