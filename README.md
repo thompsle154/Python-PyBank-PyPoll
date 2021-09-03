@@ -1,4 +1,5 @@
-### python-challenge Project Description
+### Python-challenge Project Description
+----
 ### PyBank
 PyBank is a python script written to analyze two columns of financial data in a .csv file; dates and monetary values.
 
@@ -23,8 +24,9 @@ The main.py file in the PyPoll folder:
   * Creates a dictionary of candidate names and percentage of votes won
   * Uses the dictionary to identify the candidate with the greatest percentage of votes
 
-### PyPoll Results
+### Results
 ![image](https://user-images.githubusercontent.com/78496051/132043319-820d1626-370a-4e2d-934f-b7c124ffffda.png)
+![image](https://user-images.githubusercontent.com/78496051/132045026-cf8974ec-4dd3-4be8-92a7-55997359fc84.png)
 
 ### Results Analysis
 The Python Challenge consists of creating two scripts written in Python; PyBank and PyPoll. 
