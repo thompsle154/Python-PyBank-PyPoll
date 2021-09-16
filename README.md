@@ -1,4 +1,4 @@
-### Python-challenge Project Description
+### Python Project Description
 ----
 ### PyBank
 PyBank is a python script written to analyze two columns of financial data in a .csv file; dates and monetary values.
